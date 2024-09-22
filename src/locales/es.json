@@ -1,0 +1,18 @@
+{
+  "formTitle": "Registro de Empresa/Persona",
+  "name": "Nombre Completo",
+  "email": "Correo Electrónico",
+  "cpf": "CPF",
+  "cnpj": "CNPJ",
+  "companyName": "Nombre de la Empresa",
+  "phoneNumber": "Número de Teléfono",
+  "nationality": "Nacionalidad",
+  "individual": "Persona Física",
+  "company": "Empresa",
+  "flightType": "Tipo de Vuelo",
+  "flightOption": "Seleccionar tipo de vuelo",
+  "nationalFlight": "Vuelo Nacional",
+  "internationalFlight": "Vuelo Internacional",
+  "servicesRequired": "Servicios Requeridos",
+  "submit": "Enviar"
+}

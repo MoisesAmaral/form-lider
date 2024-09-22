@@ -1,0 +1,157 @@
+:root {
+  /* Cores principais - mais vibrantes e com gradientes */
+  --color-primary: linear-gradient(135deg, #379593 0%, #2E817A 100%);
+  --color-primary-dark: #2E817A;
+
+  /* Cores de fundo - mais suavizadas */
+  --color-background-light: #F0F4F8; /* Levemente mais suave */
+  --color-background-secondary: #E0E7EB; /* Um cinza mais claro para contraste */
+  --color-background-white: #FFFFFF;
+
+  /* Cores de texto - mais contraste e leveza */
+  --color-text-main: #2C3A47; /* Mantido para contraste forte */
+  --color-text-secondary: #5A6976; /* Um tom um pouco mais suave */
+  --color-text-button-light: #FFFFFF;
+
+  /* Cores para botões - mais ênfase no hover e estados ativos */
+  --color-button-primary: #379593;
+  --color-button-primary-gradient: linear-gradient(135deg, #379593 0%, #2E817A 100%);
+  --color-button-secondary: #4D7B7F;
+  --color-button-primary-hover: linear-gradient(135deg, #2E817A 0%, #266B67 100%);
+  --color-button-primary-active: #266B67; /* Estado ativo */
+
+  /* Cores de alerta - mais dinâmicas */
+  --color-success: #43C256; /* Levemente mais escura */
+  --color-success-gradient: linear-gradient(135deg, #47D16C 0%, #43C256 100%);
+  --color-error: #E74C3C; /* Mantido */
+  --color-warning: #E67E22; /* Um tom mais forte para aviso */
+  --color-info: #3498DB;
+
+  /* Cores de borda - mais destaque em foco */
+  --color-border-light: #D1DDE2; /* Mantido */
+  --color-border-focus: #379593;
+  --color-border-hover: #2E817A; /* Borda mais escura ao passar o mouse */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-main);
+  background-color: var(--color-background-light);
+}
+
+.form-container {
+  background-color: var(--color-background-light);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.411);
+  max-width: 800px;
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 24px;
+    color: var(--color-text-main);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    label {
+      font-size: 16px;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid var(--color-border-light);
+      border-radius: 4px;
+      background-color: var(--color-background-white);
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: var(--color-border-focus);
+        outline: none;
+      }
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    fieldset {
+      border: 1px solid var(--color-border-light);
+      border-radius: 4px;
+      padding: 12px;
+      legend {
+        font-weight: bold;
+        color: var(--color-text-main);
+      }
+
+      label {
+        display: block;
+        margin: 8px 0;
+      }
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: var(--color-button-primary);
+      color: var(--color-text-button-light);
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--color-button-secondary);
+
+      }
+    }
+  }
+}
+
+.language-switcher {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+
+  background-color: var(--color-background-secondary);
+
+  .flag-button {   
+    background: transparent;
+    border: none;    
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    .flag {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+}
+
