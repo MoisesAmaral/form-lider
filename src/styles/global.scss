@@ -4,6 +4,7 @@
   --color-primary-dark: #2E817A;
 
   /* Cores de fundo - mais suavizadas */
+  --color-background-green: #015557; /* Um cinza mais claro para fundo */
   --color-background-light: #F0F4F8; /* Levemente mais suave */
   --color-background-secondary: #E0E7EB; /* Um cinza mais claro para contraste */
   --color-background-white: #FFFFFF;
@@ -132,26 +133,33 @@ body {
 .language-switcher {
   width: 100%;
   display: flex;
+  align-items: flex-end;
   justify-content: space-around;
   gap: 16px;
-
-  background-color: var(--color-background-secondary);
+  background-color: var(--color-background-green);
+  padding: 0 0 16px 0;
 
   .flag-button {   
     background: transparent;
     border: none;    
     cursor: pointer;
-    transition: transform 0.3s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+    transform: scale(1.1);
 
     .flag {
       width: 30px;
-      height: 30px;
-      border-radius: 50%;
+      height: 20px;
+      border-radius: 8px;
+      &:hover {
+        border: solid 2px #fff;       
     }
+      }
+     
+    .selected{
+      width: 30px;
+      height: 20px;
+      border-radius: 8px;
+      border: solid 2px #fff;    
+     }
   }
 }
 

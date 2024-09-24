@@ -4,6 +4,9 @@ import { LanguageProvider } from './../src/context/LanguageContext';
 import {Form} from './../src/components/Form';
 import {LanguageSwitcher} from './../src/components/LanguageSwitcher';
 import { Modal } from './components/Modal';
+import { Footer } from './components/Footer';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 
 export const App = () => {
@@ -17,10 +20,13 @@ export const App = () => {
   return (
     <LanguageProvider>
       <LanguageSwitcher />
+      <ToastContainer />
+      
       <Form />
       {isOpen &&
       <Modal  onClose={()=> setIsOpen(false)}/>
       }
+      <Footer />
     </LanguageProvider>
   );
 };

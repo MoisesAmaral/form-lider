@@ -1,14 +1,36 @@
-import  { useContext } from 'react';
+import  { useContext, useState } from 'react';
 import { LanguageContext } from './../../context/LanguageContext';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { toast } from 'react-toastify';
 
 
 export const Form = () => {
   const { translations } = useContext(LanguageContext)!;
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+
+  // Função chamada ao submeter o formulário
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!recaptchaToken) {
+      toast('Por favor, complete o reCAPTCHA', { type: 'error' });
+      return;
+    }
+
+    // Aqui você pode enviar o recaptchaToken ao seu backend para verificar a resposta
+    console.log('reCAPTCHA Token:', recaptchaToken);
+
+    // Enviar os dados do formulário
+  };
+
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
 
   return (
     <div className="form-container">
       <h1>{translations.formTitle}</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>{translations.name}</label>
         <input type="text" name="name" placeholder={translations.namePlaceholder} />
 
@@ -47,6 +69,10 @@ export const Form = () => {
 
         <label>{translations.servicesRequired}</label>
         <textarea name="servicesRequired" placeholder={translations.servicesRequiredPlaceholder}></textarea>
+        <ReCAPTCHA
+          sitekey="SUA_CHAVE_DO_SITE_AQUI"  // Substitua pela chave do site
+          onChange={handleRecaptchaChange}
+      />
 
         <button type="submit">{translations.submit}</button>
       </form>
