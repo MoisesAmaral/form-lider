@@ -5,7 +5,7 @@ import En from '../../assets/ing.png';
 import Es from './../../assets/es.png';
 import G20 from './../../assets/g20.svg';
 import Arrow from './../../assets/airplane.svg';
-import Logo from './../../assets/logo-bg.png';
+import Logo from './../../assets/Logo-bg.png';
 
 export const LanguageSwitcher = () => {
   const { setLanguage, language } = useContext(LanguageContext)!;
