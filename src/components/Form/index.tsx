@@ -1,14 +1,12 @@
-import  { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { LanguageContext } from './../../context/LanguageContext';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { toast } from 'react-toastify';
-
 
 export const Form = () => {
   const { translations } = useContext(LanguageContext)!;
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
-  // Função chamada ao submeter o formulário
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -19,7 +17,6 @@ export const Form = () => {
 
     // Aqui você pode enviar o recaptchaToken ao seu backend para verificar a resposta
     console.log('reCAPTCHA Token:', recaptchaToken);
-
     // Enviar os dados do formulário
   };
 
@@ -31,48 +28,71 @@ export const Form = () => {
     <div className="form-container">
       <h1>{translations.formTitle}</h1>
       <form onSubmit={handleSubmit}>
-        <label>{translations.name}</label>
-        <input type="text" name="name" placeholder={translations.namePlaceholder} />
-
         <label>{translations.email}</label>
-        <input type="email" name="email" placeholder={translations.emailPlaceholder} />
+        <input type="email" name="email" placeholder={translations.email} />
 
-        <label>{translations.cpf}</label>
-        <input type="text" name="cpf" placeholder={translations.cpfPlaceholder} />
+        <label>{translations.operator}</label>
+        <input type="text" name="operator" placeholder={translations.operator} />
 
-        <label>{translations.cnpj}</label>
-        <input type="text" name="cnpj" placeholder={translations.cnpjPlaceholder} />
+        <label>{translations.registration}</label>
+        <input type="text" name="registration" placeholder={translations.registration} />
 
-        <label>{translations.companyName}</label>
-        <input type="text" name="companyName" placeholder={translations.companyNamePlaceholder} />
+        <label>{translations.aircraftModel}</label>
+        <input type="text" name="aircraftModel" placeholder={translations.aircraftModel} />
 
-        <label>{translations.phoneNumber}</label>
-        <input type="tel" name="phoneNumber" placeholder={translations.phoneNumberPlaceholder} />
+        <label>{translations.mtow}</label>
+        <input type="text" name="mtow" placeholder={translations.mtow} />
 
-        <label>{translations.nationality}</label>
-        <select name="nationality">
-          <option>{translations.nationalFlight}</option>
-          <option>{translations.internationalFlight}</option>
+        <label>{translations.contractHandler}</label>
+        <input type="text" name="contractHandler" placeholder={translations.contractHandler} />
+
+        <label>{translations.eta}</label>
+        <input type="datetime-local" name="eta" placeholder={translations.eta} />
+
+        <label>{translations.from}</label>
+        <input type="text" name="from" placeholder={translations.from} />
+
+        <label>{translations.etd}</label>
+        <input type="datetime-local" name="etd" placeholder={translations.etd} />
+
+        <label>{translations.to}</label>
+        <input type="text" name="to" placeholder={translations.to} />
+
+        <label>{translations.pic}</label>
+        <input type="text" name="pic" placeholder={translations.pic} />
+
+        <label>{translations.passengers}</label>
+        <input type="number" name="passengers" placeholder={translations.passengers} />
+
+        <label>{translations.avoePermit}</label>
+        <input type="text" name="avoePermit" placeholder={translations.avoePermit} />
+
+        <label>{translations.purposeOfFlight}</label>
+        <textarea name="purposeOfFlight" placeholder={translations.purposeOfFlight}></textarea>
+
+        <label>{translations.headOnBoard}</label>
+        <select name="headOnBoard">
+          <option value="yes">{translations.headOnBoardYes}</option>
+          <option value="no">{translations.headOnBoardNo}</option>
         </select>
 
-        <fieldset>
-          <legend>{translations.flightType}</legend>
-          <label>
-            <input type="radio" name="flightType" value="national" />
-            {translations.nationalFlight}
-          </label>
-          <label>
-            <input type="radio" name="flightType" value="international" />
-            {translations.internationalFlight}
-          </label>
-        </fieldset>
+        <h2>{translations.paymentDetails}</h2>
+        <label>{translations.company}</label>
+        <input type="text" name="company" placeholder={translations.company} />
 
-        <label>{translations.servicesRequired}</label>
-        <textarea name="servicesRequired" placeholder={translations.servicesRequiredPlaceholder}></textarea>
+        <label>{translations.contactPerson}</label>
+        <input type="text" name="contactPerson" placeholder={translations.contactPerson} />
+
+        <label>{translations.mobile}</label>
+        <input type="tel" name="mobile" placeholder={translations.mobile} />
+
+        <label>{translations.address}</label>
+        <input type="text" name="address" placeholder={translations.address} />
+
         <ReCAPTCHA
-          sitekey="SUA_CHAVE_DO_SITE_AQUI"  // Substitua pela chave do site
+          sitekey="SUA_CHAVE_DO_SITE_AQUI" // Substitua pela chave do site
           onChange={handleRecaptchaChange}
-      />
+        />
 
         <button type="submit">{translations.submit}</button>
       </form>
