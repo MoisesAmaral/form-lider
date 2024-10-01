@@ -1,9 +1,8 @@
 import { createContext, useState, ReactNode } from 'react';
 import pt from './../locales/pt.json';
-import en from './../locales/en.json';
-import es from './../locales/es.json';
+import en from './../locales/en.json'
 
-type Language = 'pt' | 'en' | 'es';
+type Language = 'pt' | 'en';
 
 interface LanguageContextProps {
   language: Language;
@@ -14,12 +13,11 @@ interface LanguageContextProps {
 export const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('pt');
+  const [language, setLanguage] = useState<Language>('en');
 
   const translations = {
     pt,
     en,
-    es
   };
 
   return (

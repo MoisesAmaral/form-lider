@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
 import "./styles.css";
 export const Footer = () => {
+  const { translations } = useContext(LanguageContext)!;
   return (
-    <>
+    <>    
     <div>
       <div className="linha-footer-1">
         <ul
@@ -9,8 +12,8 @@ export const Footer = () => {
           className="plugdados-widgets-menus menu-horizontal"
         >
           <li className="parceiro plugdados-widget-menu-url-externa">
-            <a href="javascript:;" target="_self" title="ASSOCIADA">
-              ASSOCIADA
+            <a href="javascript:;" target="_self" title={translations.associada}>
+              {translations.associada}
             </a>
             <ul>
               <li className="parceiro-item plugdados-widget-menu-url-externa">
@@ -29,14 +32,14 @@ export const Footer = () => {
           </li>
           <li className="certificacoes plugdados-widget-menu-url-externa">
             <a href="javascript:;" target="_self" title="CERTIFICAÇÕES">
-              CERTIFICAÇÕES
+              {translations.certificacoes}
             </a>
             <ul>
               <li className="certificacao-item plugdados-widget-menu-url-externa">
                 <a
                   href="./certificacoes-e-homologacoes"
                   target="_self"
-                  title="CERTIFICAÇÕES"
+                  title={translations.certificacoes}
                 >
                   CERTIFICAÇÕES ITEM
                 </a>
@@ -108,9 +111,9 @@ export const Footer = () => {
             <a
               href="https://www.lideraviacao.com.br/pt-br/politica-de-privacidade"
               target="_blank"
-              title="Política de Privacidade"
+              title={translations.politicaPrivacidade}
             >
-              Política de Privacidade
+              {translations.politicaPrivacidade}
             </a>
           </li>
         </ul>
@@ -125,10 +128,7 @@ export const Footer = () => {
     color:"#534541",
     marginBottom: "20px",
     }}>
-    © 2024 Todos os direitos reservados - Líder Aviação -{" "}
-    <span className="org">Sede</span> - Av. Santa Rosa, 123, São Luiz, Belo
-    Horizonte/<span className="region">MG</span> - 31270 - 750 - Tel:
-    (31)3490-4500
+   {translations.footerInfo}
   </div>
   </>
   );

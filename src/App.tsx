@@ -1,12 +1,12 @@
 
 import { useEffect, useState } from 'react';
 import { LanguageProvider } from './../src/context/LanguageContext';
-import {Form} from './../src/components/Form';
-import {LanguageSwitcher} from './../src/components/LanguageSwitcher';
+import {MultiStepForm} from './../src/components/Form';
 import { Modal } from './components/Modal';
 import { Footer } from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { Header } from './components/header';
 
 
 export const App = () => {
@@ -19,10 +19,10 @@ export const App = () => {
   , []);
   return (
     <LanguageProvider>
-      <LanguageSwitcher />
+      <Header />
       <ToastContainer />
       
-      <Form />
+      <MultiStepForm />
       {isOpen &&
       <Modal  onClose={()=> setIsOpen(false)}/>
       }

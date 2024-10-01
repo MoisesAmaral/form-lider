@@ -1,18 +1,59 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import './styles.scss';
+import { LanguageContext } from '../../context/LanguageContext';
 
 interface ModalProps {  
   onClose: () => void;
 }
 
 export const Modal: React.FC<ModalProps> = ({ onClose }) => {
+  const { setLanguage, translations } = useContext(LanguageContext)!;
+  const [indioma, setIndioma] = React.useState('en');
+
+
 
   return (
     <div className='modal-container'>
       <div className='modal-contente'>
         <div>
-          <h2>Bem vindo ao formulário de cadastro Lider Aviação!</h2>          
-          <p>Gostaria de conhecer mais sobre a Lider Aviação S.A ?</p>
-          
+          <h2>{translations.bemVindo}</h2>         
+          {/* 
+            <p>
+              Gostaria de ser redirecionado para o site da Lider Aviação S.A ?
+            </p>
+          */}
+
+          <div className='modal-inputs'>
+            <span>{translations.selecioneIdioma}</span>
+            <div>
+              <div>
+                <input
+                  type="checkbox" 
+                  id='pt-br' 
+                  name='pt-br' 
+                  checked={indioma === 'pt-br' ? true : false }
+                  onChange={ () => {
+                    setIndioma('pt-br') ;
+                    setLanguage('pt');
+                  }}
+                />
+                <label htmlFor='pt-br'>{translations.portugues}</label>
+              </div>
+              <div>
+                <input
+                 type="checkbox" 
+                 id='en' 
+                 name='en' 
+                 checked={indioma === 'en' ? true : false }
+                 onChange={ () => {
+                  setIndioma('en') ;
+                  setLanguage('en');
+                }}
+              />
+                <label htmlFor='en'>{translations.ingles}</label>
+              </div>
+            </div>
+          </div>          
         </div>
         <div style={{
           display: 'flex',
@@ -20,11 +61,9 @@ export const Modal: React.FC<ModalProps> = ({ onClose }) => {
           gap: '10px',
           marginTop: '20px',
         }}>
-          <button type='button' onClick={onClose}>Ir para Formulario</button>
-          <button type='button' onClick={() => {
-            // abrir em uma nova aba o site da lider aviação
-            window.open('https://www.lideraviacao.com.br/pt-br/fretamento-de-aeronaves');
-          }}>Sim</button>
+          <button className="button" type='button' onClick={() => {
+            onClose();
+          }}>{translations.prosseguir}</button>
         </div>
       </div>
     </div>
