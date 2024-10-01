@@ -5,21 +5,84 @@ import { toast } from "react-toastify";
 import Warning from "./../../assets/warning-circle.svg";
 import Arrow from "./../../assets/arrow.svg";
 import { ReactSVG } from 'react-svg';
+
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import "./styles.scss";
+
+const contatoSchema = z.object({
+  nomeContato: z.string(),
+  telefoneContato: z.string(),
+  emailContato: z.string().email(),
+  operador: z.string(),
+  prefixo: z.string(),
+  modelo: z.string(),
+  mtow: z.number().min(0), // A quantidade mínima pode ser ajustada conforme necessário
+  contatoHandler: z.string(),
+  eta: z.string().refine((date) => !isNaN(Date.parse(date)), {
+    message: "Data ETA deve ser uma data válida",
+  }),
+  origem: z.string(),
+  etd: z.string().refine((date) => !isNaN(Date.parse(date)), {
+    message: "Data ETD deve ser uma data válida",
+  }),
+  destino: z.string(),
+  comandante: z.string(),
+  numeroPax: z.string(),
+  avoemPermit: z.string(),
+  propositoVoo: z.string(),
+  headOnBoard: z.string(),
+  pagamentoResponsavel: z.string(),
+  pagamentoContatoNome: z.string(),
+  pagamentoContatoTelefone: z.string(),
+  pagamentoContatoEmail: z.string().email(),
+  pagamentoCpf: z.string(),
+  pagamentoInscricaoEstadual: z.string(),
+  pagamentoInscricaoMunicipal: z.string(),
+  pagamentoTipoContribuinte: z.string(),
+  pagamentoDataNascimento: z.string().refine((date) => !isNaN(Date.parse(date)), {
+    message: "Data de nascimento deve ser uma data válida",
+  }),
+  pagamentoLogradouro: z.string(),
+  pagamentoNumero: z.string(),
+  pagamentoComplemento: z.string(),
+  pagamentoBairro: z.string(),
+  pagamentoCep: z.string(),
+  pagamentoEhPessoaFisica: z.string(),
+  pagamentoCnpj: z.string(),
+  pagamentoPaisNome: z.string(),
+  pagamentoMunicipioNome: z.string(),
+  pagamentoEstadoNome: z.string(),
+  pagamentoEhEstrangeiro: z.string(),
+  linkPagamento: z.string().url(),
+  token: z.string(),
+  idiomaLinkPagamento: z.string(),
+  pagamentoEfetuado: z.string(),
+});
+
+type Contato = z.infer<typeof contatoSchema>;
 
 export const MultiStepForm = () => {
   const { translations } = useContext(LanguageContext)!;
   const [step, setStep] = useState(1);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const { register, handleSubmit, formState: { errors } } = useForm<Contato>({
+    resolver: zodResolver(contatoSchema),
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  console.log('erros', errors);
+
+  const onSubmit = (data: Contato) => {
+       console.log(data);
 
     if (recaptchaToken) {
       toast("Por favor, complete o reCAPTCHA", { type: "error" });
       return;
     }
     nextStep();
+   
   };
 
   const handleRecaptchaChange = (token: string | null) => {
@@ -46,7 +109,7 @@ export const MultiStepForm = () => {
                 <div className="circle">{i + 1}</div>
                 <div className="label">{translations[`step${i + 1}Label`]}</div>
                 <div className="setas">
-                  {i + 1 < totalSteps && <ReactSVG src={Arrow} />}
+                  {<ReactSVG src={Arrow} />}
                 </div>
               </div>
             </div>
@@ -54,7 +117,7 @@ export const MultiStepForm = () => {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {step === 1 && (
           <div className="step-content">
             <div className="input-row">

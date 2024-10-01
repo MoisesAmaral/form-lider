@@ -1,18 +1,8 @@
 .language-switcher {
-  width: 100%;
-  background-color: #043659;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 250px 10px 250px;
-
-  &__label{
-    color: var(--color-background-light);
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-
+    
   .flag-button {   
     width: 26px;
     height: 20px;
@@ -29,8 +19,6 @@
     }
   }
 }
-
-
 .language-switcher__dropdown-container {
   position: relative; /* Define o contexto de posicionamento para o dropdown */
   display: flex;
@@ -85,6 +73,12 @@
       }
     }
   }
+}
+
+.label{
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 

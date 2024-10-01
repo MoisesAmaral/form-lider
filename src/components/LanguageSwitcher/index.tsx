@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { LanguageContext } from './../../context/LanguageContext';
 import pt from './../../assets/br.svg';
 import en from './../../assets/us.svg';
+import './styles.scss';
 
 export const LanguageSwitcher = () => {
   const { setLanguage, language } = useContext(LanguageContext)!;
@@ -12,10 +13,6 @@ export const LanguageSwitcher = () => {
   return (
       <div className='language-switcher'>
         <div className="language-switcher__dropdown-container" style={{ position: 'relative' }}>
-          {/* Botão de idioma */}
-          <span className="language-switcher__label">
-            {language === 'pt' ? 'Idioma' : language === 'en' ? 'Language' : 'Idioma'}
-            </span>
           <button onClick={toggle} className="flag-button">
             <img
               src={language === 'pt' ? pt :  en }

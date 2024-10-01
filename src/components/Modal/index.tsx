@@ -10,23 +10,29 @@ export const Modal: React.FC<ModalProps> = ({ onClose }) => {
   const { setLanguage, translations } = useContext(LanguageContext)!;
   const [indioma, setIndioma] = React.useState('en');
 
-
-
   return (
     <div className='modal-container'>
       <div className='modal-contente'>
         <div>
           <h2>{translations.bemVindo}</h2>         
-          {/* 
-            <p>
-              Gostaria de ser redirecionado para o site da Lider Aviação S.A ?
-            </p>
-          */}
-
           <div className='modal-inputs'>
-            <span>{translations.selecioneIdioma}</span>
-            <div>
-              <div>
+            <span style={{
+              fontSize: '16px',
+              fontWeight: 'bold',
+              color: '#333',
+            }}>
+              {translations.selecioneIdioma}</span>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px',
+              marginTop: '10px',
+              marginBottom: '10px',
+            }}>
+              <div style={{
+                display: 'flex',
+                gap: '10px',
+              }}>
                 <input
                   type="checkbox" 
                   id='pt-br' 
@@ -39,7 +45,10 @@ export const Modal: React.FC<ModalProps> = ({ onClose }) => {
                 />
                 <label htmlFor='pt-br'>{translations.portugues}</label>
               </div>
-              <div>
+              <div style={{
+                display: 'flex',
+                gap: '10px',
+              }}>
                 <input
                  type="checkbox" 
                  id='en' 
