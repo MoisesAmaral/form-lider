@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { LanguageContext } from "./../../context/LanguageContext";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
@@ -68,7 +68,7 @@ export const MultiStepForm = () => {
   const { translations } = useContext(LanguageContext)!;
   const [step, setStep] = useState(1);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const { register, handleSubmit, formState: { errors } } = useForm<Contato>({
+  const { handleSubmit, formState: { errors } } = useForm<Contato>({
     resolver: zodResolver(contatoSchema),
   });
 
