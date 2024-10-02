@@ -17,7 +17,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.411);
     max-width: 800px;
     width: 550px;
-    height: 300px;
+    height: 350px;
     margin: 24px;
 
     display: flex;
@@ -29,6 +29,10 @@
       color: var(--color-text-main);
       margin-bottom: 16px;
       text-align: center;
+
+      @media (max-width: 640px) {
+        font-size: 16px;
+      }
     }
 
     p {

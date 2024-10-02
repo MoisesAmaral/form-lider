@@ -4,8 +4,7 @@ import "./styles.css";
 export const Footer = () => {
   const { translations } = useContext(LanguageContext)!;
   return (
-    <>    
-    <div>
+    <> 
       <div className="linha-footer-1">
         <ul
           id="menu-rodape"
@@ -117,19 +116,8 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
+        {translations.footerInfo}
       </div>
-      
-    </div>
-    <div style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "10px",
-    color:"#534541",
-    marginBottom: "20px",
-    }}>
-   {translations.footerInfo}
-  </div>
-  </>
+      </> 
   );
 };

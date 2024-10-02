@@ -8,7 +8,8 @@ import { LanguageSwitcher } from '../LanguageSwitcher';
 export const Header = () => {
  return (
     <div className="header">
-      <div className='header__content'>     
+      <header className='header-header'>
+      <div className='content'>     
         <div>
           <img src={Logo} alt="" className='imgHeader' />
         </div>
@@ -20,6 +21,7 @@ export const Header = () => {
         </div>
       </div>     
           <LanguageSwitcher />
+        </header>
     </div>
   );
 };

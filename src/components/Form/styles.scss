@@ -1,14 +1,15 @@
 .form-container {
   max-width: 800px;
-  margin: 50px auto;
+  margin: 0 auto;
+  margin-top: 1rem;
   padding: 40px;
   background: var(--color-background-green-light);
   border-radius: 15px;
   box-shadow: var(--box-shadow-light);
 
   @media (max-width: 640px) {
-    max-width: 95%;
-    margin: 10px auto;
+    max-width: 350px;
+    margin: 0 auto;
     padding: 10px;
   }
 
@@ -158,9 +159,9 @@
 
         @media (max-width: 640px) {
           width: 100px;
-        height: 36px;
-        padding: 8px 16px;
-        font-size: 13px;
+          height: 36px;
+          padding: 8px 16px;
+          font-size: 13px;
         }
 
         &:hover {

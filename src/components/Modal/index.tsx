@@ -17,7 +17,7 @@ export const Modal: React.FC<ModalProps> = ({ onClose }) => {
           <h2>{translations.bemVindo}</h2>         
           <div className='modal-inputs'>
             <span style={{
-              fontSize: '16px',
+              fontSize: '15px',
               fontWeight: 'bold',
               color: '#333',
             }}>
@@ -66,7 +66,7 @@ export const Modal: React.FC<ModalProps> = ({ onClose }) => {
         </div>
         <div style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
           gap: '10px',
           marginTop: '20px',
         }}>
