@@ -1,0 +1,51 @@
+.wrapper {
+  position: fixed;
+  z-index: 15;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+  .container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 125px;    
+    z-index: 1000;
+    margin: 0 auto;
+    padding: 10px 10px 10px 15px;
+    border-radius: 5%;
+    box-shadow: 0px 10px 20px #006048d6;
+  }
+
+}.loading--plane {
+  width: 90px;
+  stroke-dasharray: 425.59;
+  stroke-dashoffset: 425.59;
+  animation: plane-loading-animation 3s linear infinite;
+}
+
+@keyframes plane-loading-animation {
+  50% {
+    stroke-dashoffset: 425.59;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -425.59;
+  }
+}
+
+// crio uma animação para o .container ficar girando
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

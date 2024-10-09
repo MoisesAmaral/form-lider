@@ -1,0 +1,47 @@
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.select-box {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.selected {
+  color: var(--color-primary);
+}
+
+.arrow {
+  font-size: 12px;
+}
+
+.options-container {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.option {
+  padding: 10px;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
